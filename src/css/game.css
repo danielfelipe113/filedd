@@ -1,0 +1,149 @@
+:root {
+    --edd-width: 50px;
+    --edd-height: 50px;
+    --edd-start-position-x: 20px;
+    --edd-start-position-y: 150px;
+
+    --rock1-width: 30px;
+    --rock1-height: 50px;
+    --rock1-start-position-x: 1000px;
+    --rock1-start-position-y: 150px;
+
+    --obstacle1-width: 30px;
+    --obstacle1-height: 50px;
+    --obstacle1-start-position-x: 1000px;
+    --obstacle1-start-position-y: 150px;
+
+    --filed-width: 30px;
+    --filed-height: 50px;
+    --filed-start-position-x: 1000px;
+    --filed-start-position-y: 150px;
+
+    --jump-distance: 60px;
+    --jump-distance-half: 30px;
+    --jump-time: 0.3s;
+
+    --game-board-width: 600px;
+    --game-board-height: 200px;
+
+    --game-object-movement-start: 580px;
+    --game-object-movement-end: -200px;
+
+    --movement-time: 1.5s;
+}
+
+#gameBoard {
+    width: 600px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+#fileEdd {
+    width: var(--edd-width);
+    height: var(--edd-height);
+    background-color: black;
+    z-index: 2;
+    position: absolute;
+    top: var(--edd-start-position-y);
+    left: var(--edd-start-position-x);
+}
+
+#rock1 {
+    width: var(--rock1-width);
+    height: var(--rock1-height);
+    background-color: red;
+
+    position: absolute;
+    top: var(--rock1-start-position-y);
+    left: var(--rock1-start-position-x);
+}
+
+#obstacle1 {
+    width: var(--obstacle1-width);
+    height: var(--obstacle1-height);
+    background-color: blue;
+
+    position: absolute;
+    top: var(--obstacle1-start-position-y);
+    left: var(--obstacle1-start-position-x); 
+}
+
+#filed {
+    width: var(--filed-width);
+    height: var(--filed-height);
+    background-color: yellow;
+
+    position: absolute;
+    top: var(--filed-start-position-y);
+    left: var(--filed-start-position-x); 
+}
+
+/* Actions */
+
+
+.gameObjectMoving#obstacle1 {
+    animation: gameObjectMovementObstacle1 var(--movement-time) infinite linear;
+}
+
+.gameObjectMoving#rock1 {
+    animation: gameObjectMovementRock1 var(--movement-time) infinite linear;
+}
+
+.gameObjectMoving#filed {
+    animation: gameObjectMovementFiled var(--movement-time) infinite linear;
+}
+
+.jump {
+    animation: jump var(--jump-time) linear infinite;
+}
+
+@keyframes jump {
+    0% {
+        top: var(--edd-start-position-y);
+    }
+   
+
+    50% {
+        top: var(--jump-distance);
+    }
+
+    
+
+    100% {
+        top: var(--edd-start-position-y);
+    }
+}
+
+@keyframes gameObjectMovementObstacle1 {
+    0% {
+        left: var(--obstacle1-start-position-x);
+    }
+
+    100% {
+        left: var(--game-object-movement-end);
+    }
+}
+
+@keyframes gameObjectMovementRock1 {
+    0% {
+        left: var(--rock1-start-position-x);
+    }
+
+    100% {
+        left: var(--game-object-movement-end);
+    }
+}
+
+@keyframes gameObjectMovementFiled {
+    0% {
+        left: var(--filed-start-position-x);
+    }
+
+    100% {
+        left: var(--game-object-movement-end);
+    }
+}
