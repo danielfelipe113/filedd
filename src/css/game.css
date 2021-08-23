@@ -1,8 +1,8 @@
 :root {
-    --edd-width: 50px;
-    --edd-height: 50px;
+    --edd-width: 100px;
+    --edd-height: 100px;
     --edd-start-position-x: 20px;
-    --edd-start-position-y: 150px;
+    --edd-start-position-y: 100px;
 
     --rock1-width: 30px;
     --rock1-height: 50px;
@@ -19,8 +19,8 @@
     --filed-start-position-x: 1000px;
     --filed-start-position-y: 150px;
 
-    --jump-distance: 60px;
-    --jump-distance-half: 30px;
+    --jump-distance: 24px;
+    --jump-distance-half: 12px;
     --jump-time: 0.3s;
 
     --game-board-width: 600px;
@@ -45,7 +45,8 @@
 #fileEdd {
     width: var(--edd-width);
     height: var(--edd-height);
-    background-color: black;
+    background-image: url('../img/edd1.png');
+    background-size: 100px 100px;
     z-index: 2;
     position: absolute;
     top: var(--edd-start-position-y);
@@ -80,6 +81,18 @@
     position: absolute;
     top: var(--filed-start-position-y);
     left: var(--filed-start-position-x); 
+}
+
+#score {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+#thankYou {
+    position: absolute;
+    top: 10px;
+    left: 5px;
 }
 
 /* Actions */
